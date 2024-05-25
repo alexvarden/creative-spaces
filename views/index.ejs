@@ -1,0 +1,63 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Creative Spaces</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+  <%- include('partials/layout/header') %>
+  <main class="">
+    
+    <%- include('./partials/components/hero', { 
+            heroImages: [{
+                url: 'images/index-hero/image1.jpeg',
+                alt: 'Hero Image',
+                title: 'Creative Spaces ',
+                description: 'Over 40 years of experience creating outdoor spaces.',
+                buttonText: 'Learn More'
+                
+            },
+            {
+                url: './images/index-hero/image2.jpeg',
+                alt: 'Hero Image',
+                title: '40 years of experience',
+                description: 'We have over 40 years of experience creating spaces that are beautiful, sustainable, and sustainable.',
+            },
+            {
+                url: './images/index-hero/image3.jpeg',
+                alt: 'Hero Image',
+                title: 'Asked to Landscape RHS in 2022 and 2023',
+                description: 'We are asked to landscape RHS in 2022 and 2023.',
+            }
+        ]
+    }) %>
+
+
+
+    <div class="w-full  bg-gray-100">
+            <%- include('./partials/components/alternate-section', { sections: [
+            {
+                image: 'https://via.placeholder.com/600x400',
+                alt: 'Garden Image',
+                title: 'A Modern Garden for a Contemporary Home',
+                description: 'Discover how Creative Landscapes transformed a bland garden into a modern outdoor living space, with sleek design elements and high-quality materials that complemented the contemporary architecture of the home.',
+                features: ['Garden transformation', 'Sleek design elements'],
+                link: '#'
+            },
+            {
+                image: 'https://via.placeholder.com/600x400',
+                alt: 'Driveway Image',
+                title: 'A Complete Driveway and Patio Overhaul',
+                description: 'Learn about our comprehensive driveway and patio overhaul, enhancing the functionality and aesthetics of your outdoor spaces.',
+                features: ['Driveway overhaul', 'Patio design'],
+                link: '#'
+            }]}) %>
+    </div>
+    </main>
+  <%- include('partials/layout/footer') %>
+</body>
+</html>

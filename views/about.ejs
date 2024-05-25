@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Creative Spaces</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="min-h-screen">
+  <%- include('partials/layout/header') %>
+  <main class="">
+    <div class="w-full">
+        <div class="container mx-auto px-4 py-8">
+            <h1 class="text-4xl font-bold mb-4">About us</h1>
+
+            <div class="md:flex md:items-center md:justify-center">                
+                <div class="flex-1 mr-8 ">
+                    <p class="mb-4">Creative Spaces is a team of gardeners and gardeners who are passionate about creating beautiful outdoor spaces.</p>
+                    <p>In addition to designing beautiful outdoor spaces, our team also offers a range of services to help you maintain and care for your garden. </p>
+                </div>
+                <div class="bg-gray-100 px-8 py-4 rounded-lg">
+                    <ul class="list-disc list-inside">
+                        <li>Designing beautiful outdoor spaces</li>
+                        <li>Offering a range of services for garden maintenance</li>
+                        <li>Providing a vibrant and thriving outdoor living space</li>
+                        <li>Ensuring a beautiful and well-maintained garden</li>
+                        <li>Maximizing the enjoyment of your outdoor living space</li>
+                    </ul>
+                    
+                    <div class="mt-4">
+                        <a href="/contact" class="bg-black hover:bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Find out more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     
+    </main>
+  <%- include('partials/layout/footer') %>
+</body>
+</html>

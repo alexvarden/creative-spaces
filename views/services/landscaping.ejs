@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Creative Spaces</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+  <%- include('../partials/layout/header') %>
+  <main >
+    <div class="w-full">
+        <div class="container mx-auto px-4 py-8">
+            <h1 class="text-5xl font-bold mb-4">Landscaping</h1>
+            <div class="md:flex md:items-center md:justify-center">                
+                <div class="flex-1 mr-8 ">
+                    <p class="mb-4">
+                        As landscape architects and gardeners, we take pride in creating beautiful and functional outdoor living spaces. Our team of experts understands the importance of creating spaces that not only enhance the aesthetic appeal of your home, but also provide a comfortable and enjoyable environment for you and your family. Our designs are tailored to each individual's needs and preferences, ensuring that your outdoor living space reflects your personal style and enhances your overall quality of life. Whether you're looking to create a serene garden, a lush lawn, or a stunning outdoor dining area, we have the expertise and creativity to bring your vision to life.
+                    </p>
+                    <p>
+                        In addition to designing beautiful outdoor spaces, our team also offers a range of services to help you maintain and care for your garden. 
+                    </p>
+                </div>
+                <div class="bg-gray-100 px-8 py-4 rounded-lg">
+                    <ul class="list-disc list-inside">
+                        <li>Designing beautiful outdoor spaces</li>
+                        <li>Offering a range of services for garden maintenance</li>
+                        <li>Providing a vibrant and thriving outdoor living space</li>
+                        <li>Ensuring a beautiful and well-maintained garden</li>
+                        <li>Maximizing the enjoyment of your outdoor living space</li>
+                    </ul>
+                    
+                    <div class="mt-4">
+                        <a href="/contact" class="bg-black hover:bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Find out more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="w-full">
+        <%- include('../partials/components/gallery', { images: [
+            '/images/services/landscaping/landscaping-1.jpeg',
+            '/images/services/landscaping/landscaping-2.jpeg',
+            '/images/services/landscaping/landscaping-3.jpeg',
+            '/images/services/landscaping/landscaping-2.jpeg',
+            '/images/services/landscaping/landscaping-3.jpeg',
+            '/images/services/landscaping/landscaping-2.jpeg',
+            '/images/services/landscaping/landscaping-3.jpeg',
+        ] }) %>
+    </div>
+    <div class="w-full  bg-gray-100">
+            <%- include('../partials/components/alternate-section', { sections: [
+            {
+                image: 'https://via.placeholder.com/600x400',
+                alt: 'Garden Image',
+                title: 'A Modern Garden for a Contemporary Home',
+                description: 'Discover how Creative Landscapes transformed a bland garden into a modern outdoor living space, with sleek design elements and high-quality materials that complemented the contemporary architecture of the home.',
+                features: ['Garden transformation', 'Sleek design elements'],
+                link: '#'
+            },
+            {
+                image: 'https://via.placeholder.com/600x400',
+                alt: 'Driveway Image',
+                title: 'A Complete Driveway and Patio Overhaul',
+                description: 'Learn about our comprehensive driveway and patio overhaul, enhancing the functionality and aesthetics of your outdoor spaces.',
+                features: ['Driveway overhaul', 'Patio design'],
+                link: '#'
+            }]}) %>
+    </div>
+    </main>
+  <%- include('../partials/layout/footer') %>
+</body>
+</html>
