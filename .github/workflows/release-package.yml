@@ -49,8 +49,7 @@ jobs:
 
     - name: Build and push Docker image to Google Artifact Registry
       run: |
-        docker build -t ghcr.io/${{ github.repository_owner }}/creative-spaces/creative-spaces:latest .
-        docker push ghcr.io/${{ github.repository_owner }}/creative-spaces/creative-spaces:latest
+        docker build -t europe-west2-docker.pkg.dev/creativelandscapes/creative-spaces/creative-spaces:latest .
         docker push europe-west2-docker.pkg.dev/creativelandscapes/creative-spaces/creative-spaces:latest
 
     - name: Deploy to Cloud Run
