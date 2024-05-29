@@ -4,9 +4,4 @@ services:
   web:
     build: .
     ports:
-      - "3000:3000"
-    environment:
-      - NODE_ENV=development
-    volumes:
-      - .:/usr/src/app
-      - /usr/src/app/node_modules
+      - "8080:8080"
