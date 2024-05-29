@@ -38,11 +38,6 @@ jobs:
         username: ${{ github.repository_owner }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Build and push Docker image
-      run: |
-        docker build -t ghcr.io/${{ github.repository_owner }}/creative-spaces/creative-spaces:latest .
-        docker push ghcr.io/${{ github.repository_owner }}/creative-spaces/creative-spaces:latest
-
     - id: 'auth'
       name: 'Authenticate to Google Cloud'
       uses: 'google-github-actions/auth@v2'
@@ -52,10 +47,16 @@ jobs:
     - name: 'Set up Cloud SDK'
       uses: 'google-github-actions/setup-gcloud@v2'
 
+    - name: Build and push Docker image to Google Artifact Registry
+      run: |
+        docker build -t ghcr.io/${{ github.repository_owner }}/creative-spaces/creative-spaces:latest .
+        docker push ghcr.io/${{ github.repository_owner }}/creative-spaces/creative-spaces:latest
+        docker push europe-west2-docker.pkg.dev/creativelandscapes/creative-spaces/creative-spaces:latest
+
     - name: Deploy to Cloud Run
       run: |
         gcloud run deploy creative-spaces-service \
-          --image=ghcr.io/${{ github.repository_owner }}/creative-spaces/creative-spaces:latest \
+          --image=europe-west2-docker.pkg.dev/creativelandscapes/creative-spaces/creative-spaces:latest \
           --platform=managed \
           --region=europe-west2 \
           --memory=512Mi \

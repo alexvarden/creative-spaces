@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Ensure any scripts are executable
-RUN chmod +x ./docker-entrypoint.sh
+RUN chmod +x /usr/src/app/docker-entrypoint.sh
 
 # Expose port 8080
 EXPOSE 8080
