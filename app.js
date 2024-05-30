@@ -43,9 +43,8 @@ app.get('/services/landscaping', (req, res) => {
             "<strong> Features:</strong> Water features, rockery gardens, raised beds, retaining walls.",
         ], 
         content:`
-            <p class='mt-4'>
-                Transform your outdoor space into a beautiful, functional paradise with our expert landscaping services. We specialise in creating stunning garden designs that not only enhance the aesthetics of your property but also add value to your home. Our team of experienced landscapers will work with you to develop a custom plan that suits your taste and lifestyle. From lush lawns to vibrant flower beds, serene water features to sophisticated lighting, we ensure every element is perfectly in place to create your dream garden. Trust us to turn your outdoor vision into reality, providing a tranquil escape right in your back garden.
-            </p>
+            <p class="my-4">Transform your outdoor space into a beautiful, functional paradise with our expert landscaping services. We specialise in creating stunning garden designs that not only enhance the aesthetics of your property but also add value to your home.</p>
+            <p>Our team of experienced landscapers will work with you to develop a custom plan that suits your taste and lifestyle. From lush lawns to vibrant flower beds, serene water features to sophisticated lighting, we ensure every element is perfectly in place to create your dream garden. Trust us to turn your outdoor vision into reality, providing a tranquil escape right in your back garden.</p>
         `, 
         images: getImagesInDirectory('landscaping')
     }); 
@@ -60,11 +59,14 @@ app.get('/services/decking', (req, res) => {
            "<strong> Finishes:</strong> Stained, painted, natural, weathered, pressure - treated.",
            "<strong> Decking Designs:</strong> Single level, multi - level, wrap - around, platform, elevated.",
            "<strong> Fencing Features:</strong> Gates, trellises, planter boxes, security features."
-
         ],
         content: `
             <p class='mt-4'>
-                Enhance the functionality and beauty of your outdoor space with our professional decking and fencing services. Whether you’re looking to create a private retreat or a stylish entertaining area, we offer a range of solutions to meet your needs. Our high-quality materials and expert craftsmanship ensure your deck and fence will withstand the elements and provide lasting enjoyment. From classic wooden decks to modern composite materials, and secure, attractive fencing options, we have the perfect solutions to complement your home and garden. Let us help you create an outdoor space that you’ll love for years to come.            
+                Enhance the functionality and beauty of your outdoor space with our professional decking and fencing services. Whether you’re looking to create a private retreat or a stylish entertaining area, we offer a range of solutions to meet your needs. 
+            </p>
+            <p class='mt-4'>
+                Our high-quality materials and expert craftsmanship ensure your deck and fence will withstand the elements and provide lasting enjoyment. From classic wooden decks to modern composite materials, and secure, attractive fencing options, we have the perfect solutions to complement your home and garden.
+                Let us help you create an outdoor space that you’ll love for years to come.            
             </p>
         `,
         images: getImagesInDirectory('decking')
@@ -84,7 +86,10 @@ app.get('/services/driveways-paving', (req, res) => {
         ],
         content: `
             <p class='mt-4'>
-                Upgrade your property's kerb appeal and functionality with our superior driveways and paving services. We provide durable, aesthetically pleasing solutions tailored to your specific needs. Whether you need a new driveway, patio, or pathway, our team uses only the best materials and techniques to ensure a long-lasting result. We specialise in a variety of paving options that can enhance the look and feel of your outdoor spaces, providing both beauty and practicality. Count on us to deliver exceptional craftsmanship that will make your driveway and paving areas a standout feature of your home.            
+                Upgrade your property's kerb appeal and functionality with our superior driveways and paving services. We provide durable, aesthetically pleasing solutions tailored to your specific needs. Whether you need a new driveway, patio, or pathway, our team uses only the best materials and techniques to ensure a long-lasting result. 
+            </p>
+            <p class='mt-4'>
+                We specialise in a variety of paving options that can enhance the look and feel of your outdoor spaces, providing both beauty and practicality. Count on us to deliver exceptional craftsmanship that will make your driveway and paving areas a standout feature of your home.            
             </p>
         `,
         images: getImagesInDirectory('paving')
@@ -102,7 +107,10 @@ app.get('/services/garden-rooms', (req, res) => {
         ],
         content: `
             <p class='mt-4'>
-                Create an elegant extension of your living space with our custom garden rooms. Perfect for a home office, gym, studio, or relaxation space, our garden rooms are designed to meet your specific needs while blending seamlessly with your outdoor environment. Built using high-quality materials and modern construction techniques, our garden rooms provide a comfortable, year-round retreat. Enjoy the convenience of an additional room that brings you closer to nature without sacrificing comfort or style. Let us help you design and build a garden room that enhances your lifestyle and adds value to your property.
+                Create an elegant extension of your living space with our custom garden rooms. Perfect for a home office, gym, studio, or relaxation space, our garden rooms are designed to meet your specific needs while blending seamlessly with your outdoor environment.
+            </p>
+            <p class='mt-4'>
+                Built using high-quality materials and modern construction techniques, our garden rooms provide a comfortable, year-round retreat. Enjoy the convenience of an additional room that brings you closer to nature without sacrificing comfort or style. Let us help you design and build a garden room that enhances your lifestyle and adds value to your property.
             </p>
         `,
         images: getImagesInDirectory('garden-room')
@@ -122,10 +130,61 @@ app.get('/services/outdoor-kitchens', (req, res) => {
             
         ],
         content: `
-            <p class='mt-4'>Elevate your outdoor entertaining with our bespoke outdoor kitchen services. Perfect for hosting family and friends, our outdoor kitchens are designed to provide all the conveniences of indoor cooking in a stylish, open-air setting. We offer a range of custom solutions that include everything from state-of-the-art grills and smokers to sinks, refrigerators, and prep areas. Our designs are tailored to fit your space and cooking style, ensuring that your outdoor kitchen is both functional and beautiful. Enjoy the ultimate al fresco dining experience with a kitchen that transforms your garden into a gourmet haven.            </p>
+            <p class='mt-4'>
+                Elevate your outdoor entertaining with our bespoke outdoor kitchen services. Perfect for hosting family and friends, our outdoor kitchens are designed to provide all the conveniences of indoor cooking in a stylish, open-air setting. 
+            </p>
+            <p class='mt-4'>
+                We offer a range of custom solutions that include everything from state-of-the-art grills and smokers to sinks, refrigerators, and prep areas. Our designs are tailored to fit your space and cooking style, ensuring that your outdoor kitchen is both functional and beautiful. Enjoy the ultimate al fresco dining experience with a kitchen that transforms your garden into a gourmet haven.            
+            </p>
         `,
-        images: getImagesInDirectory('garden-room')
+        images: getImagesInDirectory('outdoor-kitchens')
     });
+});
+
+
+
+app.get('/services/fencing', (req, res) => {
+    res.render('services/default', {
+        title: 'Fencing',
+        features: [
+            "<strong>Materials:</strong> Timber, metal, PVC, composite, ",
+            "<strong>Styles:</strong>  horizontal slats, lattice, privacy, decorative.",
+            "<strong>Finishes:</strong> Stained, painted, natural, weathered, pressure - treated.",
+            "<strong>Features:</strong> Gates, trellises, integrated lighting, planter boxes, security features.",
+            "<strong>Designs:</strong> Vertical boards, shadowbox, split rail, panel, woven.",
+
+        ],
+        content: `
+            <p class='mt-4'>
+                Enhance the security, privacy, and aesthetic appeal of your property with our professional fencing services. Our expert team specialises in installing high-quality fences that not only provide a functional barrier but also complement the overall design of your outdoor space. 
+            </p>
+            <p class='mt-4'>
+                Whether you need a traditional wooden fence for a classic look, a modern metal fence for sleek sophistication, or a durable composite fence for low maintenance, we have the perfect solution for you. With a focus on precision craftsmanship and attention to detail, we ensure that your fencing is built to last and enhances the beauty of your property.            
+            </p>
+        `,
+        images: getImagesInDirectory('fencing')
+    });
+});
+
+app.get('/rhs', (req, res) => {
+    res.render('services/default', {
+        title: 'RHS',
+        features: false,
+        content: `
+            <p class='mt-4'>
+                We were honoured to be invited to work on the Royal Horticultural Society nocturnal pollinators experience garden at the tatton park flower show. this unique garden showcased flowering plants that emit heady scents at night to attract moths, highlighting the crucial but often overlooked role of these "invisible" pollinators. 
+                our work in partnership with <a href="https://www.sharonhockenhull.co.uk/" target="_blank">Sharon Hockenhull</a gained significant attention and was even featured on countryfile.</p>
+                <p class='mt-4 mb-8'>
+                the garden was inspired by a 2020 study that underscored the importance of moths in pollination, aiming to raise awareness and encourage the creation of more moth-friendly gardens. this prestigious project was a testament to our commitment to innovative and impactful landscaping.
+            </p>
+            
+            <a class="mt-8 px-4 py-2 rounded bg-black text-white" href="https://www.rhs.org.uk/shows-events/rhs-flower-show-tatton-park/gardens/2023/rhs-nocturnal-pollinator-experience" target="_blank">Read more</a>
+
+
+        `,
+        images: getImagesInDirectory('rhs')
+    });
+        
 });
 
 app.get('/contact', (req, res) => {

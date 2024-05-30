@@ -1,57 +1,98 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home - Creative Spaces</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body>
+
   <%- include('../partials/layout/header') %>
-  <main >
-    <div class="w-full">
-        <div class="container mx-auto px-4 py-8">
-            <h1 class="text-5xl font-bold mb-4"><%- title %></h1>
-            <div class="md:flex md:items-center md:justify-center">                
-                <div class="flex-1 mr-8">
-                    <%- content %>
-                </div>
-                <div class="bg-gray-100 px-8 py-4 rounded-lg w-1/3">
-                    <ul class="list-none ">
-                        <% for (const feature of features) { %>
-                            <li class="mt-2"><%- feature %></li>
-                        <% } %>
-                    </ul>                    
-                    <div class="mt-4 w-1/2  w-full">
-                        <a href="/contact" class="w-full  bg-black text-white font-bold py-2 px-4 rounded">Find out more</a>
-                    </div>
+<main >
+<div class="w-full">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold mb-4  md:text-5xl"><%- title %></h1>
+        <div class="flex flex-col md:flex-row">                
+            <div class="flex-1 mr-8 text-xl md:w-2/3 mb-8">
+                <%- content %>
+            </div>
+            <% if (features.length) { %>
+            <div class="bg-gray-100 px-8 py-4 rounded-lg w-full md:w-1/3 ">
+                <ul class="list-none">
+                    <% for (const feature of features) { %>
+                        <li class="mt-2"><%- feature %></li>
+                    <% } %>
+                </ul>                    
+                <div class="mt-4 w-full ">
+                    <a href="/contact" class=" md:w-ful text-center margin-auto bg-black text-white font-bold py-2 px-4 rounded block md:inline-block">Find out more</a>
                 </div>
             </div>
+            <% } %>
         </div>
     </div>
-    <div class="w-full">
-        <%- include('../partials/components/gallery', { "images": images }) %>
-    </div>
-    <div class="w-full  bg-gray-100">
-            <%- include('../partials/components/alternate-section', { sections: [
-            {
-                image: 'https://via.placeholder.com/600x400',
-                alt: 'Garden Image',
-                title: 'A Modern Garden for a Contemporary Home',
-                description: 'Discover how Creative Landscapes transformed a bland garden into a modern outdoor living space, with sleek design elements and high-quality materials that complemented the contemporary architecture of the home.',
-                features: ['Garden transformation', 'Sleek design elements'],
-                link: '#'
-            },
-            {
-                image: 'https://via.placeholder.com/600x400',
-                alt: 'Driveway Image',
-                title: 'A Complete Driveway and Patio Overhaul',
-                description: 'Learn about our comprehensive driveway and patio overhaul, enhancing the functionality and aesthetics of your outdoor spaces.',
-                features: ['Driveway overhaul', 'Patio design'],
-                link: '#'
-            }]}) %>
-    </div>
-    </main>
+</div>
+<div class="w-full">
+    <%- include('../partials/components/gallery', { "images": images }) %>
+</div>
+<div class="w-full  bg-gray-100">
+        <%- include('../partials/components/alternate-section', {
+            currentTitle: title,
+            items:2,
+            sections: [
+                {
+                    "title": 'Fencing',
+                    "description": 'Fencing is an essential part of any outdoor space. Our team of experts can help you create a beautiful fence that will last for years.',
+                    "image": '/images/fencing/fencing-1.jpg',
+                    "features": [],
+                    "link": '/services/fencing'
+                },
+                
+                {
+                    "title": "Landscaping",
+                    "description": "Transform your outdoor space into a beautiful, functional paradise with our expert landscaping services. We specialise in creating stunning garden designs that enhance the aesthetics and value of your property.",
+                    "image": "/images/landscaping/landscaping-2.jpg",
+                    "features": [
+                        "Natural stone and pavers",
+                        "Contemporary and traditional styles",
+                        "Water features and garden lighting"
+                    ],
+                    "link": "/services/landscaping"
+                },
+                {
+                    "title": "Decking & Balestrades",
+                    "description": "Enhance the functionality and beauty of your outdoor space with our professional decking and fencing services. Our high-quality materials and expert craftsmanship ensure lasting enjoyment and security.",
+                    "image": "/images/decking/decking-3.jpg",
+                    "features": [
+                    ],
+                    "link": "/services/decking"
+                },
+                {
+                    "title": "Driveways & Paving",
+                    "description": "Upgrade your property's kerb appeal and functionality with our superior driveways and paving services. We provide durable and aesthetically pleasing solutions tailored to your needs.",
+                    "image": "/images/driveway-paving/hero.jpg",
+                    "features": [
+                        "Concrete, asphalt, and block paving",
+                        "Patterned and permeable styles",
+                        "Polished, textured, and coloured finishes"
+                    ],
+                    "link": "/services/driveways-paving"
+                },
+                {
+                    "title": "Garden Rooms",
+                    "description": "Create an elegant extension of your living space with our custom garden rooms. Perfect for a home office, gym, studio, or relaxation space, our garden rooms provide a comfortable, year-round retreat.",
+                    "image": "/images/garden-room/hero.jpg",
+                    "features": [
+                        "Timber, steel, and glass materials",
+                        "Modern, traditional, and rustic styles",
+                        "Heating, lighting, and built-in storage"
+                    ],
+                    "link": "/services/garden-room"
+                },
+                {
+                    "title": "Outdoor Kitchens",
+                    "description": "Elevate your outdoor entertaining with our bespoke outdoor kitchen services. Our designs include state-of-the-art grills, sinks, refrigerators, and prep areas, tailored to fit your space and cooking style.",
+                    "image": "/images/outdoor-kitchens/outdoor-kitchen-1.jpg",
+                    "features": [
+                        "Stainless steel, stone, and brick materials",
+                        "Grills, smokers, and pizza ovens",
+                        "Granite, quartz, and concrete countertops"
+                    ],
+                    "link": "/services/outdoor-kitchens"
+                }
+            ]            
+        }) %>
+</div>
+</main>
   <%- include('../partials/layout/footer') %>
-</body>
-</html>
