@@ -10,14 +10,13 @@ COPY package*.json ./
 # Install the dependencies
 RUN npm install 
 
-# Copy the rest of the application code
+# # # Copy the rest of the application code
 COPY . .
 
 # Ensure any scripts are executable
-RUN chmod +x /usr/src/app/docker-entrypoint.sh
+RUN chmod +x ./docker-entrypoint.sh
 
 # Expose port 8080
 EXPOSE 8080
 
-
-ENTRYPOINT [ "/usr/src/app/docker-entrypoint.sh" ]
+ENTRYPOINT [ "./docker-entrypoint.sh" ]

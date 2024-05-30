@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Creative Spaces</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+  <%- include('../partials/layout/header') %>
+  <main >
+    <div class="w-full">
+        <div class="container mx-auto px-4 py-8">
+            <h1 class="text-5xl font-bold mb-4"><%- title %></h1>
+            <div class="md:flex md:items-center md:justify-center">                
+                <div class="flex-1 mr-8">
+                    <%- content %>
+                </div>
+                <div class="bg-gray-100 px-8 py-4 rounded-lg w-1/3">
+                    <ul class="list-none ">
+                        <% for (const feature of features) { %>
+                            <li class="mt-2"><%- feature %></li>
+                        <% } %>
+                    </ul>                    
+                    <div class="mt-4 w-1/2  w-full">
+                        <a href="/contact" class="w-full  bg-black text-white font-bold py-2 px-4 rounded">Find out more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="w-full">
+        <%- include('../partials/components/gallery', { "images": images }) %>
+    </div>
+    <div class="w-full  bg-gray-100">
+            <%- include('../partials/components/alternate-section', { sections: [
+            {
+                image: 'https://via.placeholder.com/600x400',
+                alt: 'Garden Image',
+                title: 'A Modern Garden for a Contemporary Home',
+                description: 'Discover how Creative Landscapes transformed a bland garden into a modern outdoor living space, with sleek design elements and high-quality materials that complemented the contemporary architecture of the home.',
+                features: ['Garden transformation', 'Sleek design elements'],
+                link: '#'
+            },
+            {
+                image: 'https://via.placeholder.com/600x400',
+                alt: 'Driveway Image',
+                title: 'A Complete Driveway and Patio Overhaul',
+                description: 'Learn about our comprehensive driveway and patio overhaul, enhancing the functionality and aesthetics of your outdoor spaces.',
+                features: ['Driveway overhaul', 'Patio design'],
+                link: '#'
+            }]}) %>
+    </div>
+    </main>
+  <%- include('../partials/layout/footer') %>
+</body>
+</html>
