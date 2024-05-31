@@ -8,64 +8,65 @@
     .js-carousel-item {
         flex: 1 0 100%;
     }
-
     .text-shadow {
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     }
-
-      .fade-in {
-    opacity: 0;
-    animation: fadeIn 2s forwards;
-  }
-
-  @keyframes fadeIn {
-    to {
-      opacity: 1;
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 2s forwards;
     }
-  }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
   </style>
-  
-  <div class="js-carousel w-full h-screen overflow-hidden relative">
-    <div class="js-carousel-inner flex">
-      <% heroImages.forEach((image, index) => { %>
-        <div class="js-carousel-item w-full h-full flex-shrink-0 bg-center bg-cover" style="background-image: url('<%= image.url %>');">
-          <div class="text-white relative  w-full h-full flex flex-col justify-center items-start bg-black bg-opacity-50 px-8 md:px-20">
-            <div class="max-w-xl fade-in">
-                <h1 class="text-8xl md:text-8xl font-bold mb-4 text-shadow"><%= image.title %></h1>
-                <% if (image.description) { %>
-                <p class="text-xl md:text-2xl mb-6 text-shadow"><%= image.description %></p>
-                <% } %>
-                <div class="flex space-x-4">
-                <% if (image.buttonText) { %>
-                    <a href="<%= image.buttonLink %>" class="inline-block bg-white text-black font-bold py-2 px-4  hover:bg-black hover:text-white rounded transition duration-300"><%= image.buttonText %></a>
-                <% } %>
-                <% if (image.secondaryButtonText) { %>
-                    <a href="<%= image.secondaryButtonLink %>" class="inline-block bg-transparent border-2 border-white text-white font-bold py-2 px-4 rounded-full hover:bg-white hover:text-black"><%= image.secondaryButtonText %></a>
-                <% } %>
-                </div>
+  <script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="js-carousel w-full h-screen overflow-hidden relative">
+  <div class="js-carousel-inner flex">
+    <% heroImages.forEach((image, index) => { %>
+      <div class="js-carousel-item w-full h-full flex-shrink-0 bg-center bg-cover" style="background-image: url('<%= image.url %>');">
+        <div class="text-white relative w-full h-full flex flex-col justify-center md:items-start bg-black bg-opacity-50 px-6 md:px-20">
+          <div class="max-w-xl fade-in text-center md:text-left">
+            <h1 class="text-6xl md:text-8xl  font-bold mb-4 text-shadow"><%= image.title %></h1>
+            <% if (image.description) { %>
+            <p class="text-lg md:text-2xl mb-6 text-shadow"><%= image.description %></p>
+            <% } %>
+            <div class="flex md:justify-start justify-center  md:space-x-4 space-y-4 md:space-y-0">
+              <% if (image.buttonText) { %>
+              <a href="<%= image.buttonLink %>" class="inline-block bg-white text-black font-bold py-2 px-4 hover:bg-black hover:text-white rounded transition duration-300"><%= image.buttonText %></a>
+              <% } %>
+              <% if (image.secondaryButtonText) { %>
+              <a href="<%= image.secondaryButtonLink %>" class="inline-block bg-transparent border-2 border-white text-white font-bold py-2 px-4 rounded-full hover:bg-white hover:text-black"><%= image.secondaryButtonText %></a>
+              <% } %>
             </div>
           </div>
         </div>
-      <% }) %>
-      
-    </div>
+      </div>
+    <% }) %>
   </div>
-  
-  <script>
-    let currentIndex = 0;
-    const slides = document.querySelectorAll('.js-carousel-item');
-    const totalSlides = slides.length;
-    const carouselInner = document.querySelector('.js-carousel-inner');
+</div>
 
-    function showSlide(index) {
-      const offset = -index * 100;
-      carouselInner.style.transform = `translateX(${offset}%)`;
-    }
+<script>
+  let currentIndex = 0;
+  const slides = document.querySelectorAll('.js-carousel-item');
+  const totalSlides = slides.length;
+  const carouselInner = document.querySelector('.js-carousel-inner');
 
-    function nextSlide() {
-      currentIndex = (currentIndex + 1) % totalSlides;
-      showSlide(currentIndex);
-    }
+  function showSlide(index) {
+    const offset = -index * 100;
+    carouselInner.style.transform = `translateX(${offset}%)`;
+  }
 
-    setInterval(nextSlide, 6000); // Change slide every 3 seconds
-  </script>
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    showSlide(currentIndex);
+  }
+
+  setInterval(nextSlide, 6000); // Change slide every 6 seconds
+</script>
+

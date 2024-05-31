@@ -1,35 +1,11 @@
 
-  <%- include('../partials/layout/header') %>
-<main >
-<div class="w-full">
-    <div class="container mx-auto px-4 py-8">
-        <h1 class="text-3xl font-bold mb-4  md:text-5xl"><%- title %></h1>
-        <div class="flex flex-col md:flex-row">                
-            <div class="flex-1 mr-8 text-xl md:w-2/3 mb-8">
-                <%- content %>
-            </div>
-            <% if (features.length) { %>
-            <div class="bg-gray-100 px-8 py-4 rounded-lg w-full md:w-1/3 ">
-                <ul class="list-none">
-                    <% for (const feature of features) { %>
-                        <li class="mt-2"><%- feature %></li>
-                    <% } %>
-                </ul>                    
-                <div class="mt-4 w-full ">
-                    <a href="/contact" class=" md:w-ful text-center margin-auto bg-black text-white font-bold py-2 px-4 rounded block md:inline-block">Find out more</a>
-                </div>
-            </div>
-            <% } %>
-        </div>
-    </div>
-</div>
-<div class="w-full">
-    <%- include('../partials/components/gallery', { "images": images }) %>
-</div>
-<div class="w-full  bg-gray-100">
-        <%- include('../partials/components/alternate-section', {
-            currentTitle: title,
-            items:2,
+
+  <%- include('partials/layout/header') %>
+  <main class="">
+        
+        <%- include('./partials/components/services-grid', {
+            currentTitle: 'index',
+            items:4,
             sections: [
                 {
                     "title": 'Fencing',
@@ -52,7 +28,7 @@
                 },
                 {
                     "title": "Decking & Balestrades",
-                    "description": "Sleek and stylish, our custom deckings and balustrades are designed to enhance your outdoor space. We provide durable and aesthetically pleasing solutions tailored to your needs.",
+                    "description": "Enhance the functionality and beauty of your outdoor space with our professional decking and balestrade services. Our high-quality materials and expert craftsmanship ensure lasting enjoyment and security.",
                     "image": "/images/decking/decking-3.jpg",
                     "features": [
                     ],
@@ -93,6 +69,5 @@
                 }
             ]            
         }) %>
-</div>
-</main>
-  <%- include('../partials/layout/footer') %>
+    </main>
+  <%- include('partials/layout/footer') %>

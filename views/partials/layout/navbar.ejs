@@ -11,30 +11,38 @@
     const navItems = [ 
         { href: '/', text: 'Home' },
         { href: '/about', text: 'About' },
-        {  text: 'Services' , dropdownItems: servicesNavItems},
+        {  href: '/services', text: 'Services' , dropdownItems: servicesNavItems},
     ];
 %>
-<nav class="flex space-x-8 justify-between items-center  ">
-    <ul class="flex space-x-4 items-center">
-        <% navItems.forEach(item => { %>
-             <% if (item.dropdownItems) { %>
-                <li class="relative dropdown">
-                    <a href="#" class="text-gray-600 hover:text-gray-900"><%= item.text %></a>
-                    <ul class="absolute left-0  w-48 bg-white border rounded shadow-lg dropdown-menu hidden z-10">
-                        <% item.dropdownItems.forEach(dropdownItem => { %>
-                            <li><a href="<%= dropdownItem.href %>" class="block px-4 py-2 text-gray-600 hover:bg-gray-100"><%= dropdownItem.text %></a></li>
-                        <% }) %>
-                    </ul>
-                </li>
-            <% } else { %>
-                <li><a href="<%= item.href %>" class="text-gray-600 hover:text-gray-900"><%= item.text %></a></li>
-            <% } %>
-        <% }) %>
-    </ul>
-    <div class="flex items-center">
-        <a href="/contact" class="text-white bg-black hover:bg-blue-700 py-2 px-4  rounded-lg ml-auto">Lets Talk</a>
-    </div>
+<nav id="nav-menu" class="hidden md:flex md:space-x-8 items-center">
+<ul class="flex flex-col md:flex-row md:space-x-4 items-center">
+    <% navItems.forEach(item => { %>
+    <% if (item.dropdownItems) { %>
+        <li class="relative dropdown">
+        <a href="<%= item.href %>" class="text-gray-600 hover:text-gray-900"><%= item.text %></a>
+        <ul class="absolute left-0 w-48 bg-white border rounded shadow-lg dropdown-menu hidden z-10">
+            <% item.dropdownItems.forEach(dropdownItem => { %>
+            <li><a href="<%= dropdownItem.href %>" class="block px-4 py-2 text-gray-600 hover:bg-gray-100"><%= dropdownItem.text %></a></li>
+            <% }) %>
+        </ul>
+        </li>
+    <% } else { %>
+        <li><a href="<%= item.href %>" class="text-gray-600 hover:text-gray-900"><%= item.text %></a></li>
+    <% } %>
+    <% }) %>
+</ul>
+<div class="flex items-center mt-4 md:mt-0">
+    <a href="/contact" class="text-white bg-black hover:bg-blue-700 py-2 px-4 rounded-lg">Let's Talk</a>
+</div>
 </nav>
 
-
-
+<script>
+  document.getElementById('menu-toggle').addEventListener('click', function () {
+    const navMenu = document.getElementById('nav-menu');
+    if (navMenu.classList.contains('hidden')) {
+      navMenu.classList.remove('hidden');
+    } else {
+      navMenu.classList.add('hidden');
+    }
+  });
+</script>

@@ -54,20 +54,18 @@ app.get('/services/decking', (req, res) => {
     res.render('services/default', {
         title: 'Decking & Balestrade',
         features: [
-           "<strong> Materials:</strong> Timber, composite, PVC.",
-           "<strong> Styles:</strong> Horizontal slats, lattice, privacy, decorative.",
-           "<strong> Finishes:</strong> Stained, painted, natural, weathered, pressure - treated.",
+           "<strong> Materials:</strong> Timber, composite.",
+            "<strong> Colours:</strong> Natrual wood, ampharosite, black, white.",
            "<strong> Decking Designs:</strong> Single level, multi - level, wrap - around, platform, elevated.",
-           "<strong> Fencing Features:</strong> Gates, trellises, planter boxes, security features."
+           "<strong> Balustrade Styles:</strong> Glass, steel."
+           
         ],
         content: `
-            <p class='mt-4'>
-                Enhance the functionality and beauty of your outdoor space with our professional decking and fencing services. Whether you’re looking to create a private retreat or a stylish entertaining area, we offer a range of solutions to meet your needs. 
-            </p>
-            <p class='mt-4'>
-                Our high-quality materials and expert craftsmanship ensure your deck and fence will withstand the elements and provide lasting enjoyment. From classic wooden decks to modern composite materials, and secure, attractive fencing options, we have the perfect solutions to complement your home and garden.
-                Let us help you create an outdoor space that you’ll love for years to come.            
-            </p>
+    
+    <p class="my-4">    Enhance the functionality and beauty of your outdoor space with our professional decking and balustrade services. Whether you’re looking to create a private retreat or a stylish entertaining area, we offer a range of solutions to meet your needs.</p>
+
+    <p>Our high-quality materials and expert craftsmanship ensure your decking and balustrade will withstand the elements and provide lasting enjoyment. From classic wooden decks to modern composite materials, and elegant glass balustrades, we have the perfect solutions to complement your home and garden. Let us help you create an outdoor space that you’ll love for years to come.</p>
+
         `,
         images: getImagesInDirectory('decking')
     });
@@ -227,6 +225,12 @@ app.get('/contact', (req, res) => {
 
 
 
+app.get('/services', (req, res) => {
+
+    res.render('services');
+
+
+});
 
 
 
