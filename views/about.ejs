@@ -1,42 +1,85 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home - Creative Spaces</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body class="min-h-screen">
+
   <%- include('partials/layout/header') %>
-  <main class="">
-    <div class="w-full">
-        <div class="container mx-auto px-4 py-8">
-            <h1 class="text-4xl font-bold mb-4">About us</h1>
-
-            <div class="md:flex md:items-center md:justify-center">                
-                <div class="flex-1 mr-8 ">
-                    <p class="mb-4">Creative Spaces is a team of gardeners and gardeners who are passionate about creating beautiful outdoor spaces.</p>
-                    <p>In addition to designing beautiful outdoor spaces, our team also offers a range of services to help you maintain and care for your garden. </p>
-                </div>
-                <div class="bg-gray-100 px-8 py-4 rounded-lg">
-                    <ul class="list-disc list-inside">
-                        <li>Designing beautiful outdoor spaces</li>
-                        <li>Offering a range of services for garden maintenance</li>
-                        <li>Providing a vibrant and thriving outdoor living space</li>
-                        <li>Ensuring a beautiful and well-maintained garden</li>
-                        <li>Maximizing the enjoyment of your outdoor living space</li>
-                    </ul>
-                    
-                    <div class="mt-4">
-                        <a href="/contact" class="bg-black hover:bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Find out more</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-     
+  <main class=" w-full ">
+  <div class="container mx-auto p-6">
+    <section class=" p-6 mb-8">
+      <h2 class="text-2xl font-bold mb-4">About Us</h2>
+      <p class="mb-4">Welcome to our family-run landscaping business, proudly serving the Greater Manchester and Blackburn areas. With over 40 years of experience, we bring a wealth of knowledge and passion to every project we undertake. Owned and operated by Stephen, our company is dedicated to providing exceptional landscaping services that enhance the beauty and functionality of your outdoor spaces. Our ethos is rooted in quality, high craftsmanship, and meticulous attention to detail, ensuring top-notch results for our clients.</p>
+      <h3 class="text-xl font-semibold mb-4">Our Story</h3>
+      <p class="mb-4">Stephen, our founder and owner, has been a cornerstone of the landscaping industry for over four decades. His extensive experience and hands-on approach have been instrumental in building our reputation for excellence. As a family-run business, we offer a personal touch and commitment to customer satisfaction that larger companies often overlook. We believe in creating lasting relationships with our clients, treating every landscaping project with the care and dedication it deserves.</p>
+      <h3 class="text-xl font-semibold mb-4">Serving Greater Manchester and Blackburn</h3>
+      <p class="mb-4">Located in the heart of the Greater Manchester and Blackburn areas, we are proud to offer our expert landscaping services to these communities. Whether you're looking to create a tranquil garden retreat, enhance your home's exterior with a new driveway, or build a stunning garden room, we are here to bring your vision to life.</p>
+      <p class="mb-4">Thank you for considering us for your landscaping needs. We look forward to working with you to create the outdoor space of your dreams. Contact us today to learn more about our services and how we can help you transform your garden.</p>
+    </section>
+  </div>     
+  <section class="bg-gray-100 p-6 mb-8">
+ <%- include('./partials/components/services-grid', {
+            currentTitle: 'index',
+            items:4,
+            sections: [
+                {
+                    "title": 'Fencing',
+                    "description": 'Fencing is an essential part of any outdoor space. Our team of experts can help you create a beautiful fence that will last for years.',
+                    "image": '/images/fencing/fencing-1.jpg',
+                    "features": [],
+                    "link": '/services/fencing'
+                },
+                
+                {
+                    "title": "Landscaping",
+                    "description": "Transform your outdoor space into a beautiful, functional paradise with our expert landscaping services. We specialise in creating stunning garden designs that enhance the aesthetics and value of your property.",
+                    "image": "/images/landscaping/landscaping-2.jpg",
+                    "features": [
+                        "Natural stone and pavers",
+                        "Contemporary and traditional styles",
+                        "Water features and garden lighting"
+                    ],
+                    "link": "/services/landscaping"
+                },
+                {
+                    "title": "Decking & Balestrades",
+                    "description": "Enhance the functionality and beauty of your outdoor space with our professional decking and balestrade services. Our high-quality materials and expert craftsmanship ensure lasting enjoyment and security.",
+                    "image": "/images/decking/decking-3.jpg",
+                    "features": [
+                    ],
+                    "link": "/services/decking"
+                },
+                {
+                    "title": "Driveways & Paving",
+                    "description": "Upgrade your property's kerb appeal and functionality with our superior driveways and paving services. We provide durable and aesthetically pleasing solutions tailored to your needs.",
+                    "image": "/images/paving/hero.jpg",
+                    "features": [
+                        "Concrete, asphalt, and block paving",
+                        "Patterned and permeable styles",
+                        "Polished, textured, and coloured finishes"
+                    ],
+                    "link": "/services/driveways-paving"
+                },
+                {
+                    "title": "Garden Rooms",
+                    "description": "Create an elegant extension of your living space with our custom garden rooms. Perfect for a home office, gym, studio, or relaxation space, our garden rooms provide a comfortable, year-round retreat.",
+                    "image": "/images/garden-room/hero.jpg",
+                    "features": [
+                        "Timber, steel, and glass materials",
+                        "Modern, traditional, and rustic styles",
+                        "Heating, lighting, and built-in storage"
+                    ],
+                    "link": "/services/garden-rooms"
+                },
+                {
+                    "title": "Outdoor Kitchens",
+                    "description": "Elevate your outdoor entertaining with our bespoke outdoor kitchen services. Our designs include state-of-the-art grills, sinks, refrigerators, and prep areas, tailored to fit your space and cooking style.",
+                    "image": "/images/outdoor-kitchens/outdoor-kitchen-1.jpg",
+                    "features": [
+                        "Stainless steel, stone, and brick materials",
+                        "Grills, smokers, and pizza ovens",
+                        "Granite, quartz, and concrete countertops"
+                    ],
+                    "link": "/services/outdoor-kitchens"
+                }
+            ]            
+        }) %>
+</section>
     </main>
   <%- include('partials/layout/footer') %>
-</body>
-</html>
+ 

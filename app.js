@@ -14,8 +14,8 @@ function getImagesInDirectory(directory) {
     return images;
 }
 
-
-
+app.use(express.json());       
+app.use(express.urlencoded());
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -29,7 +29,6 @@ app.get('/', (req, res) => {
 app.get('/about', (req, res) => {
     res.render('about');
 });
-
 app.get('/services', (req, res) => {
     res.render('services');
 });
@@ -46,7 +45,8 @@ app.get('/services/landscaping', (req, res) => {
             <p class="my-4">Transform your outdoor space into a beautiful, functional paradise with our expert landscaping services. We specialise in creating stunning garden designs that not only enhance the aesthetics of your property but also add value to your home.</p>
             <p>Our team of experienced landscapers will work with you to develop a custom plan that suits your taste and lifestyle. From lush lawns to vibrant flower beds, serene water features to sophisticated lighting, we ensure every element is perfectly in place to create your dream garden. Trust us to turn your outdoor vision into reality, providing a tranquil escape right in your back garden.</p>
         `, 
-        images: getImagesInDirectory('landscaping')
+        images: getImagesInDirectory('landscaping'),
+        heroImage: '/images/landscaping/landscaping-2.jpg'
     }); 
 });
 
@@ -67,7 +67,10 @@ app.get('/services/decking', (req, res) => {
     <p>Our high-quality materials and expert craftsmanship ensure your decking and balustrade will withstand the elements and provide lasting enjoyment. From classic wooden decks to modern composite materials, and elegant glass balustrades, we have the perfect solutions to complement your home and garden. Let us help you create an outdoor space that you’ll love for years to come.</p>
 
         `,
-        images: getImagesInDirectory('decking')
+        images: getImagesInDirectory('decking'),
+        heroImage: "/images/decking/decking-1.jpg",
+
+
     });
 });
 
@@ -90,7 +93,9 @@ app.get('/services/driveways-paving', (req, res) => {
                 We specialise in a variety of paving options that can enhance the look and feel of your outdoor spaces, providing both beauty and practicality. Count on us to deliver exceptional craftsmanship that will make your driveway and paving areas a standout feature of your home.            
             </p>
         `,
-        images: getImagesInDirectory('paving')
+        images: getImagesInDirectory('paving'),
+        heroImage: "/images/paving/hero.jpg",
+
     });
 });
 
@@ -115,6 +120,10 @@ app.get('/services/garden-rooms', (req, res) => {
     });
 });
 
+
+app.get('/terms-and-conditions', (req, res) => {
+    res.render('terms-and-conditions');
+});
 
 app.get('/services/outdoor-kitchens', (req, res) => {
     res.render('services/default', {
@@ -177,8 +186,6 @@ app.get('/rhs', (req, res) => {
             </p>
             
             <a class="mt-8 px-4 py-2 rounded bg-black text-white" href="https://www.rhs.org.uk/shows-events/rhs-flower-show-tatton-park/gardens/2023/rhs-nocturnal-pollinator-experience" target="_blank">Read more</a>
-
-
         `,
         images: getImagesInDirectory('rhs')
     });
@@ -186,54 +193,76 @@ app.get('/rhs', (req, res) => {
 });
 
 app.get('/contact', (req, res) => {
+    res.render('contact', {
+    });
+});
 
-    // const nodemailer = require('nodemailer');
+app.post('/contact', (req, res) => {
+    
+    const nodemailer = require('nodemailer');
+    const config = require('./config.json');
 
-    // app.post('/contact', (req, res) => {
-    //     const { name, email, message } = req.body;
+    
+    const { name, email, message } = req.body;
 
-    //     const transporter = nodemailer.createTransport({
-    //         service: 'gmail',
-    //         auth: {
-    //             user: 'your-email@gmail.com',
-    //             pass: 'your-password'
-    //         }
-    //     });
+    // Create a transporter object using SMTP transport
+    const transporter = nodemailer.createTransport({
+        host: 'smtp.mail.yahoo.com',
+        port: 465,
+        service: 'yahoo',
+        secure: false,
+        
+        auth: {
+            user: config.user,
+            pass: config.password,
+        },
+        debug: false,
+        logger: true
 
-    //     const mailOptions = {
-    //         from: `${name} <${email}>`,
-    //         to: 'your-email@gmail.com',
-    //         subject: 'Contact Form Submission',
-    //         text: message
-    //     };
+    });
+ 
+    transporter.verify((error, success) => {
+        if (error) {
+            console.error(error);
+        } else {
+            console.log('Server is ready to take our messages');
+        }
+    });
 
-    //     transporter.sendMail(mailOptions, (error, info) => {
-    //         if (error) {
-    //             console.log(error);
-    //             res.status(500).send('An error occurred');
-    //         } else {
-    //             console.log('Email sent: ' + info.response);
-    //             res.send('Email sent successfully');
-    //         }
-    //     });
-    // });
+    // Setup email data
+    const mailOptions = {
+        // from: config.sendFrom, // sender address
+        to: config.sendTo,     // list of receivers
+        subject: "Website contact form", // Subject line
+        text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}` // plain text body
+    };
 
+    // Send mail with defined transport object
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            console.log(error);
+            return res.status(500).send('Something went wrong.');
 
+        }
+        console.log('Message sent: %s', info.messageId);
+        res.redirect('/success');
+    });
+});
 
-    res.render('contact');
+app.get('/success', (req, res) => {
+    res.render('success', {
+        error: false
+    });
 });
 
 
-
-app.get('/services', (req, res) => {
-
-    res.render('services');
-
-
+app.get('/error', (req, res) => {
+    res.render('success', {
+        error: true
+    });
 });
 
-
-
+ 
 app.listen(PORT, HOST, () => {
     console.log(`Server is running on http://${HOST}:${PORT}`);
 });

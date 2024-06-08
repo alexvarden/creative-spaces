@@ -14,13 +14,27 @@
     <div class="md:w-1/2 px-4 py-8">
       <h2 class="text-4xl font-bold text-white mb-4">Information</h2>
       <ul class="text-gray-400">
-        <li class="mt-2"> Privacy Policy</li>
-        <li class="mt-2"> Terms and Conditions</li>
+        <a href="/terms-and-conditions"><li  class="mt-2"> Terms and Conditions</li></a> 
       </ul>
     </div>
-    <div class="w-full px-4 py-8">
-      <h2 class="text-4xl font-bold text-white mb-4">Contact Us</h2>
-      <form action="/contact" method="POST">
+    <div class="w-full ">
+        <h2 class="text-4xl font-bold text-white mb-4 pl-4">Contact Us</h2>
+        <div class="p-8 my-8 bg-gray-100 rounded-lg shadow-md">
+            <div class="flex items-center mb-4">
+                <svg class="w-8 h-8 fill-current mr-4 text-xl" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100"   xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M21.384,17.752a2.108,2.108,0,0,1-.522,3.359,7.543,7.543,0,0,1-5.476.642C10.5,20.523,3.477,13.5,2.247,8.614a7.543,7.543,0,0,1,.642-5.476,2.108,2.108,0,0,1,3.359-.522L8.333,4.7a2.094,2.094,0,0,1,.445,2.328A3.877,3.877,0,0,1,8,8.2c-2.384,2.384,5.417,10.185,7.8,7.8a3.877,3.877,0,0,1,1.173-.781,2.092,2.092,0,0,1,2.328.445Z"/>
+                </svg>
+                <p class="md:text-xl font-semibold">  <a href="tel:+447448078710" class=" hover:underline">07949 689 127</a></p>
+            </div>
+            <div class="flex items-center">
+                <svg class="w-8 h-8 fill-current mr-4 text-xl" xmlns="http://www.w3.org/2000/svg"  x="0px" y="0px" width="100" height="100"   viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M873.8 304.9l-367 211.9-357.6-206.4v-30.8c0-36.4 29.5-66 66-66H808c36.4 0 66 29.5 66 66v25.3z m0 76.1v359.6c0 36.4-29.5 66-66 66H215.1c-36.4 0-66-29.5-66-66V386.5l341.3 197c11.7 6.8 25.8 5.5 36-2 0.5-0.2 0.9-0.5 1.4-0.7l346-199.8z"  />
+                </svg>                 
+                <p class="md:text-xl font-semibold">  <a href="mailto:creativespaces.shop@gmail.com" class=" hover:underline">creativespaces.shop@gmail.com</a></p>
+            </div>
+        </div>
+
+      <!-- <form action="/contact" method="POST">
         <label for="name" class="block mt-2 text-gray-400">Name</label>
         <input type="text" name="name" id="name" class="block mt-2 w-full p-2 border border-gray-400 rounded">
         <label for="email" class="block mt-2 text-gray-400">Email</label>
@@ -28,11 +42,12 @@
         <label for="message" class="block mt-2 text-gray-400">Message</label>
         <textarea name="message" id="message" cols="30" rows="10" class="block mt-2 w-full p-2 border border-gray-400 rounded"></textarea>
         <button type="submit" class="mt-4 bg-white text-black py-2 px-4 rounded">Submit</button>
-      </form>
+      </form> -->
     </div>
   </div>
   <div class="container mx-auto px-4 py-8 text-center text-gray-400">
-    <p>&copy; 2024 Creative Spaces. Designed by Alex Varden.</p>
+    <p> &copy; 2024 Creative Spaces.</p>
+    <p> Designed by Alex Varden.</p>
   </div>
 </footer>
 
